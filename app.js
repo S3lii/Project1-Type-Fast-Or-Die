@@ -19,7 +19,7 @@ const paragraphs = [
 
 
 /*-------------------------------- Variables --------------------------------*/
-let timeleft = 60;
+let timeLeft = 60;
 let timer;
 
 
@@ -29,13 +29,29 @@ let timer;
 const startButton =document.querySelector('#startButton')
 
 /*-------------------------------- Functions --------------------------------*/
-function startTimer(){
-    timeleft = 60;
-    timer =setTimeout(function(){
-        document.getElementById("game-over").style.display = "block";
-    }, 60000); // 60 seconds
+function startTimer() {
+  timeLeft = 60;
+  document.getElementById("timer").innerText = `Time: ${timeLeft}s`;
+
+  timer = setInterval(() => {
+    timeLeft--;
+    
+    document.getElementById("timer").innerText = `Time: ${timeLeft}s`;
+
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      wordInput.disabled = true;
+      document.getElementById("wordDisplay").innerText = "Time's up! Game Over!";
+    }
+  }, 1000);
+}
+
+function startGame(){
+    startButton.style.display = "none";
+    startTimer();
 }
 
 
+
 /*----------------------------- Event Listeners -----------------------------*/
-startButton.addEventListener('click', startTimer);
+startButton.addEventListener('click', startGame);
