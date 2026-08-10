@@ -40,14 +40,14 @@ function startTimer() {
 
     if (timeLeft <= 0) {
       clearInterval(timer);
-      wordInput.disabled = true;
-      document.getElementById("wordDisplay").innerText = "Time's up! Game Over!";
+      userInput.disabled = true;
     }
   }, 1000);
 }
 
 function startGame(){
-    startButton.style.display = "none";
+    startButton.disabled = true
+    userInput.disabled =false
     startTimer();
 }
 
