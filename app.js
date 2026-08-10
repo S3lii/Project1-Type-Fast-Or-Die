@@ -1,3 +1,5 @@
+/*-------------------------------- Constants --------------------------------*/
+
 const paragraphs = [
   "I am afraid I made a bit of a blunder. Perhaps the years have finally caught up with me. Protect your master with your life. Take this key, for the hidden temple is just ahead. Listen carefully and never forget the Shinobi Code. As your father, my word is absolute, and your master is a close second.",
   "Hesitation is defeat. Victory requires mastering deflection, reading posture meters, and learning every telegraph. A shinobi must wait for the sound of clashing steel, parry the enemy's decisive strike, and break their guard with absolute precision.",
@@ -14,3 +16,26 @@ const paragraphs = [
   "Any fool can write code that a computer can understand. Good programmers write code that humans can understand. Writing clean, modular code with clear naming conventions makes refactoring effortless and saves hours of maintenance in the long run.",
   "An algorithm is a step-by-step procedure designed to solve a specific problem. Choosing the right data structure—whether a hash map, binary tree, or priority queue—can transform an impossibly slow operation into lightning-fast execution."
 ];
+
+
+/*-------------------------------- Variables --------------------------------*/
+let timeleft = 60;
+let timer;
+
+
+
+/*------------------------ Cached Element References ------------------------*/
+
+const startButton =document.querySelector('#startButton')
+
+/*-------------------------------- Functions --------------------------------*/
+function startTimer(){
+    timeleft = 60;
+    timer =setTimeout(function(){
+        document.getElementById("game-over").style.display = "block";
+    }, 60000); // 60 seconds
+}
+
+
+/*----------------------------- Event Listeners -----------------------------*/
+startButton.addEventListener('click', startTimer);
