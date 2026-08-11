@@ -15,14 +15,22 @@ const paragraphs = [
   "Debugging is like being the detective in a crime movie where you are also the murderer. You read through execution logs, set breakpoints, and trace state variables until you discover that a missing bracket or simple typo caused the entire system to crash.",
   "Any fool can write code that a computer can understand. Good programmers write code that humans can understand. Writing clean, modular code with clear naming conventions makes refactoring effortless and saves hours of maintenance in the long run.",
   "An algorithm is a step-by-step procedure designed to solve a specific problem. Choosing the right data structure—whether a hash map, binary tree, or priority queue—can transform an impossibly slow operation into lightning-fast execution."
-];
+]
 
 
 /*-------------------------------- Variables --------------------------------*/
 let timeLeft = 60;
 let timer;
+let Number = Math.floor(Math.random() * paragraphs.length);
+
+let currentP = paragraphs[Number]
+
+let Paragrapwords = currentP.split(" ")
+
+let mistake = false
 
 
+console.log(currentP.split('')[1])
 
 /*------------------------ Cached Element References ------------------------*/
 
@@ -49,7 +57,15 @@ function startGame(){
     startButton.disabled = true
     userInput.disabled =false
     startTimer();
+    console.log(ParagraphArr)
+    wordDisplay.innerText = currentP
 }
+
+
+function gamelogic(){
+
+}
+
 
 
 
