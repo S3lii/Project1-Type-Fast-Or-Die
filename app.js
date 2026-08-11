@@ -25,16 +25,18 @@ let Number = Math.floor(Math.random() * paragraphs.length);
 
 let currentP = paragraphs[Number]
 
-let Paragrapwords = currentP.split(" ")
+let Paragrapwords = currentP.split(/( )/)
 
 let mistake = false
 
 
-console.log(currentP.split('')[1])
+
 
 /*------------------------ Cached Element References ------------------------*/
 
 const startButton =document.querySelector('#startButton')
+const userInput = document.querySelector
+
 
 /*-------------------------------- Functions --------------------------------*/
 function startTimer() {
@@ -57,7 +59,7 @@ function startGame(){
     startButton.disabled = true
     userInput.disabled =false
     startTimer();
-    console.log(ParagraphArr)
+    console.log(Paragrapwords)
     wordDisplay.innerText = currentP
 }
 
@@ -71,3 +73,4 @@ function gamelogic(){
 
 /*----------------------------- Event Listeners -----------------------------*/
 startButton.addEventListener('click', startGame);
+
