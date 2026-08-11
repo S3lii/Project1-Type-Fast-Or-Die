@@ -77,5 +77,6 @@ function gamelogic(){
 
 
 /*----------------------------- Event Listeners -----------------------------*/
-startButton.addEventListener('click', startGame);
+startButton.addEventListener('click', startGame)
+userInput.addEventListener('input', myFunction)
 
