@@ -35,7 +35,8 @@ let mistake = false
 /*------------------------ Cached Element References ------------------------*/
 
 const startButton =document.querySelector('#startButton')
-const userInput = document.querySelector
+
+
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -61,6 +62,10 @@ function startGame(){
     startTimer();
     console.log(Paragrapwords)
     wordDisplay.innerText = currentP
+}
+
+function myFunction() {
+    console.log(userInput.value)
 }
 
 
