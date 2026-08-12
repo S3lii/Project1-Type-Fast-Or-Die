@@ -25,7 +25,7 @@ let Number = Math.floor(Math.random() * paragraphs.length);
 
 let currentP = paragraphs[Number]
 
-let Paragraphwords = currentP.split(/( )/)
+let Paragraphwords = currentP.split("")
 
 let mistake = true
 let score = 0
@@ -62,7 +62,7 @@ function startGame(){
     startTimer();
     
     console.log(Paragraphwords)
-    wordDisplay.innerText = currentP
+    wordDisplay.innerText = Paragraphwords.join("")
     gamelogic()
 }
 
@@ -72,7 +72,7 @@ input = userInput.value
 
 
 let currentIndex = 0;
-
+let word = ''
 function gamelogic() {
   let currentWord = Paragraphwords[currentIndex]
   let input = userInput.value
@@ -82,6 +82,8 @@ function gamelogic() {
     userInput.value = ''
     score++
     scoreDisplay.innerText = `Score: ${score}`
+    word = word + currentWord
+    console.log(word)
   }
 
   
