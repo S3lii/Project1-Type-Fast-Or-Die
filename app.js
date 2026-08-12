@@ -25,6 +25,9 @@ let Number = Math.floor(Math.random() * paragraphs.length);
 
 let currentP = paragraphs[Number]
 
+let fullWords = currentP.split(/( )/)
+
+
 let Paragraphwords = currentP.split("")
 
 let mistake = true
@@ -71,22 +74,31 @@ input = userInput.value
 }
 
 
-let currentIndex = 0;
+let currentIndexforLetters = 0
+let currentIndexforWords = 0
 let word = ''
-function gamelogic() {
-  let currentWord = Paragraphwords[currentIndex]
-  let input = userInput.value
 
-  if (input === currentWord) {
-    currentIndex++
+function gamelogic() {
+  let currentLetter = Paragraphwords[currentIndexforLetters]
+  let input = userInput.value
+  let letter = userInput.value
+  let lastLetter = input.at(-1)
+  let wordNow = fullWords[currentIndexforWords]
+
+  if (lastLetter === currentLetter) {
+    currentIndexforLetters++
+    scoreDisplay.innerText = `Score: ${score}`
+  } 
+
+  if (wordNow === input){
+    console.log('word complete')
+    console.log(lastLetter)
+    currentIndexforWords++
     userInput.value = ''
     score++
     scoreDisplay.innerText = `Score: ${score}`
-    word = word + currentWord
-    console.log(word)
   }
 
-  
 }
 
 
