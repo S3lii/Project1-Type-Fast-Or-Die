@@ -40,6 +40,7 @@ const startButton =document.querySelector('#startButton')
 const scoreDisplay = document.querySelector('#score')
 const wordDisplay = document.querySelector('#wordDisplay')
 const userInput = document.querySelector('#userInput')
+const letterDisplay = document.querySelector('#correctWords')
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -96,8 +97,12 @@ function gamelogic() {
     currentIndexforWords++
     userInput.value = ''
     score++
+    console.log(wordNow)
     scoreDisplay.innerText = `Score: ${score}`
+    letterDisplay.innerHTML += wordNow
+    
   }
+  
 
 }
 
