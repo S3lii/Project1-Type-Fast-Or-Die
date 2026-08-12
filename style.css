@@ -188,3 +188,36 @@ button {
   background: rgba(255, 255, 255, 0.12);
   color: #ffffff;
 }
+
+.correct-display {
+  /* Layout */
+  grid-column: span 2;
+  min-height: 60px; /* Prevents the UI from jumping when empty */
+  margin-bottom: 4px; /* Slight breathing room above the input */
+  
+  /* Typography */
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--accent-green);
+  text-align: left;
+  word-break: break-word;
+  line-height: 1.6;
+  
+  background: rgba(10, 11, 16, 0.7);
+  border: 1px solid rgba(0, 255, 135, 0.25); 
+  border-radius: 14px;
+  padding: 16px 20px;
+  box-shadow: inset 0 0 20px rgba(0, 255, 135, 0.05); 
+  
+  transition: all 0.3s ease;
+}
+
+.correct-display:empty {
+  display: none; 
+}
+
+
+.correct {
+  color: var(--accent-green);
+  text-shadow: 0 0 10px rgba(0, 255, 135, 0.4); /* Adds the neon glow */
+}

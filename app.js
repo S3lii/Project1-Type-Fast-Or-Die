@@ -1,7 +1,7 @@
 /*-------------------------------- Constants --------------------------------*/
 
 const paragraphs = [
-  "I am afraid I made a bit of a blunder. Perhaps the years have finally caught up with me. Protect your master with your life. Take this key, for the hidden temple is just ahead. Listen carefully and never forget the Shinobi Code. As your father, my word is absolute, and your master is a close second.",
+  "I am afraid I made a bit of a blunder. Perhaps the years have finally caught up with me. Protect your master with your life. Take this key, for the hidden temple is just ahead. Listen carefully and never forget the Shinobi Code. As your father, my word is absolute.",
   "Hesitation is defeat. Victory requires mastering deflection, reading posture meters, and learning every telegraph. A shinobi must wait for the sound of clashing steel, parry the enemy's decisive strike, and break their guard with absolute precision.",
   "Brave Tarnished, seek the Elden Ring and become Elden Lord. Traverse the Lands Between, confront demigods in shattered realms, and harness grace to overcome brutal boss encounters that punish reckless aggressive play with instant death.",
   "The Sunken Valley holds relentless trials, where every step requires swift grapple hooks and total focus. Face giant beasts, dodge lethal perils, and strike only when an opening reveals itself, for a single mistake means starting over at the nearest Idol.",
@@ -41,7 +41,6 @@ const scoreDisplay = document.querySelector('#score')
 const wordDisplay = document.querySelector('#wordDisplay')
 const userInput = document.querySelector('#userInput')
 const letterDisplay = document.querySelector('#correctWords')
-
 
 /*-------------------------------- Functions --------------------------------*/
 function startTimer() {
@@ -89,18 +88,22 @@ function gamelogic() {
   if (lastLetter === currentLetter) {
     currentIndexforLetters++
     scoreDisplay.innerText = `Score: ${score}`
+    userInput.value = ''
+    letterDisplay.innerHTML  += lastLetter
+    word += lastLetter
+
   } 
 
-  if (wordNow === input){
+  if (wordNow === word){
     console.log('word complete')
     console.log(lastLetter)
     currentIndexforWords++
-    userInput.value = ''
+
+    word =''
     score++
     console.log(wordNow)
     scoreDisplay.innerText = `Score: ${score}`
-    letterDisplay.innerHTML += wordNow
-    
+
   }
   
 
