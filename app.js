@@ -21,18 +21,14 @@ const paragraphs = [
 /*-------------------------------- Variables --------------------------------*/
 let timeLeft = 60;
 let timer;
-let Number = Math.floor(Math.random() * paragraphs.length);
-
-let currentP = paragraphs[Number]
-
-let fullWords = currentP.split(/( )/)
-
-
-let Paragraphwords = currentP.split("")
 
 let mistake = true
 let score = 0
 
+let Number = Math.floor(Math.random() * paragraphs.length);
+let currentP = paragraphs[Number]
+let fullWords = currentP.split(/( )/)
+let Paragraphwords = currentP.split("")
 
 /*------------------------ Cached Element References ------------------------*/
 
@@ -59,13 +55,41 @@ function startTimer() {
   }, 1000);
 }
 
+
+function chooseParagraph() {
+Number = Math.floor(Math.random() * paragraphs.length);
+currentP = paragraphs[Number]
+fullWords = currentP.split(/( )/)
+Paragraphwords = currentP.split("")
+}
+
+let colorIndex =0
+function changingColor() {
+  
+  if (userInput.value === Paragraphwords[colorIndex]){
+        console.log("match! adding class")
+    wordDisplay.classList.add("correct")
+    colorIndex++
+  }
+
+}
+
+function renderParagraph() {
+  wordDisplay.innerHTML = Paragraphwords
+    .map((char, i) => `<span id="char-${i}">${char}</span>`)
+    .join("")
+}
+
+
 function startGame(){
+    chooseParagraph()
     startButton.disabled = true
     userInput.disabled =false
-    startTimer();
+    startTimer()
+   
     
     console.log(Paragraphwords)
-    wordDisplay.innerText = Paragraphwords.join("")
+   renderParagraph()
     gamelogic()
 }
 
@@ -77,6 +101,8 @@ input = userInput.value
 let currentIndexforLetters = 0
 let currentIndexforWords = 0
 let word = ''
+
+
 
 function gamelogic() {
   let currentLetter = Paragraphwords[currentIndexforLetters]
@@ -91,7 +117,6 @@ function gamelogic() {
     userInput.value = ''
     letterDisplay.innerHTML  += lastLetter
     word += lastLetter
-
   } 
 
   if (wordNow === word){

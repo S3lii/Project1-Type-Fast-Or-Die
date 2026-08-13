@@ -192,8 +192,8 @@ button {
 .correct-display {
   /* Layout */
   grid-column: span 2;
-  min-height: 60px; /* Prevents the UI from jumping when empty */
-  margin-bottom: 4px; /* Slight breathing room above the input */
+  min-height: 60px; 
+  margin-bottom: 4px;
   
   /* Typography */
   font-family: var(--font-body);
@@ -219,5 +219,9 @@ button {
 
 .correct {
   color: var(--accent-green);
-  text-shadow: 0 0 10px rgba(0, 255, 135, 0.4); /* Adds the neon glow */
+  text-shadow: 0 0 10px rgba(0, 255, 135, 0.4); 
+}
+
+.word-display.correct {
+  color: green;
 }
