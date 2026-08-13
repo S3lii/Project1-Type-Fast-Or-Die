@@ -231,3 +231,10 @@ button {
   border-radius: 3px;
   text-shadow: 0 0 10px rgba(0, 255, 135, 0.4);
 }
+
+
+.word-display span.incorrect {
+  color: var(--accent-red);
+  background-color: rgba(255, 42, 95, 0.25);
+  border-radius: 3px;
+}
