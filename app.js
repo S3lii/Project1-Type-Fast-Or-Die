@@ -112,23 +112,24 @@ function gamelogic() {
   let wordNow = fullWords[currentIndexforWords]
 
   if (lastLetter === currentLetter) {
+    const span = document.getElementById(`char-${currentIndexforLetters}`)
+    if (span) span.classList.add("correct")
+
     currentIndexforLetters++
     scoreDisplay.innerText = `Score: ${score}`
     userInput.value = ''
-    letterDisplay.innerHTML  += lastLetter
     word += lastLetter
   } 
-
+ 
   if (wordNow === word){
     console.log('word complete')
     console.log(lastLetter)
     currentIndexforWords++
-
+    letterDisplay.innerHTML  += word
     word =''
     score++
     console.log(wordNow)
     scoreDisplay.innerText = `Score: ${score}`
-
   }
   
 
