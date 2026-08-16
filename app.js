@@ -25,7 +25,7 @@ let timer;
 let mistake = true
 let score = 0
 
-let Number = Math.floor(Math.random() * paragraphs.length);
+let Number = Math.floor(Math.random() * paragraphs.length)
 let currentP = paragraphs[Number]
 let fullWords = currentP.split(/( )/)
 let Paragraphwords = currentP.split("")
@@ -39,8 +39,7 @@ const scoreDisplay = document.querySelector('#score')
 const wordDisplay = document.querySelector('#wordDisplay')
 const userInput = document.querySelector('#userInput')
 const letterDisplay = document.querySelector('#correctWords')
-const restButton =document.querySelector('#restButton')
-
+const resetButton = document.querySelector('#resetButton')
 
 /*-------------------------------- Functions --------------------------------*/
 function startTimer() {
@@ -170,8 +169,10 @@ else if (timeLeft === 0){
 }
 }
 
-function restButton(){
-  
+function resetGame(){
+  startButton.disabled = false
+  stopTimer()
+  userInput.disabled = true
 }
 
 
@@ -181,4 +182,4 @@ function restButton(){
 startButton.addEventListener('click', startGame)
 userInput.addEventListener('input', gamelogic)
 userInput.addEventListener('input' , winCondicion)
-resetButton.addEventListener('click' , restButton)
+resetButton.addEventListener('click', resetGame)
