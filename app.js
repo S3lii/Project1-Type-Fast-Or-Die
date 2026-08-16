@@ -1,25 +1,25 @@
 /*-------------------------------- Constants --------------------------------*/
 
 const paragraphs = [
-  "I am afraid I made a bit of a blunder. Perhaps the years have finally caught up with me. Protect your master with your life. Take this key, for the hidden temple is just ahead. Listen carefully and never forget the Shinobi Code.",
-  "Hesitation is defeat. Victory requires mastering deflection, reading posture meters, and learning every telegraph. A shinobi must wait for the sound of clashing steel, parry the enemy's decisive strike.",
-  "Brave Tarnished, seek the Elden Ring and become Elden Lord. Traverse the Lands Between, confront demigods in shattered realms, and harness grace to overcome brutal boss encounters that punish reckless aggressive.",
-  "The Sunken Valley holds relentless trials, where every step requires swift grapple hooks and total focus. Face giant beasts, dodge lethal perils, and strike only when an opening reveals itself.",
-  "Rise, Tarnished, and let grace guide your path through Caelid and Mount Gelmir. Whether wielding heavy colossal swords, casting glintstone sorceries, or summoning spirit ashes.",
+  "My years have caught up with me. Take this key to the hidden temple, protect your master with your life, and never forget the Shinobi Code.",
+  "Hesitation is defeat. Master deflection, read posture meters, and parry decisive strikes to win.",
+  "Tarnished, seek the Elden Ring and become Elden Lord by defeating demigods across the Lands Between.",
+  "The Sunken Valley demands swift grappling and focus—dodge lethal hazards and strike only when openings appear.",
+  "Let grace guide you through Caelid and Mount Gelmir, whether wielding colossal swords, casting sorceries, or summoning spirits.",
 
-  "Social engineering bypasses firewalls because humans are often the weakest link in security. Phishing emails and pretexting trick users into handing over credentials.",
-  "Penetration testing involves simulating cyberattacks to discover security flaws before malicious hackers can exploit them. By conducting reconnaissance, scanning open ports, and executing controlled exploits.",
-  "The CIA triad forms the foundation of cybersecurity: Confidentiality keeps data private, Integrity ensures it cannot be altered without authorization, and Availability guarantees systems remain accessible.",
-  "Network traffic analysis is crucial for detecting suspicious behavior in real time. Inspecting packet headers, analyzing anomalous payloads, and configuring firewalls allow security defenders to intercept unauthorized intrusions before an incident turns into a full breach.",
+  "Social engineering bypasses firewalls by exploiting human error through phishing and pretexting.",
+  "Penetration testing simulates cyberattacks via reconnaissance, port scanning, and controlled exploits to patch vulnerabilities first.",
+  "The CIA triad anchors cybersecurity: Confidentiality protects data, Integrity prevents tampering, and Availability ensures access.",
+  "Network traffic analysis intercepts intrusions in real time by inspecting packet headers, anomalous payloads, and firewall logs.",
 
-  "Debugging is like being the detective in a crime movie where you are also the murderer. You read through execution logs, set breakpoints, and trace state variables until you discover that a missing bracket or simple typo caused the entire system to crash.",
-  "Any fool can write code that a computer can understand. Good programmers write code that humans can understand. Writing clean, modular code with clear naming conventions makes refactoring effortless and saves hours of maintenance in the long run.",
-  "An algorithm is a step-by-step procedure designed to solve a specific problem. Choosing the right data structure—whether a hash map, binary tree."
+  "Debugging is investigating a crime where you are also the culprit, tracing execution logs and breakpoints to find a single typo.",
+  "Write code for humans, not just computers. Clean, modular design and clear naming make maintenance effortless.",
+  "An algorithm is a step-by-step problem-solving procedure optimized by choosing the correct data structure."
 ]
 
 
 /*-------------------------------- Variables --------------------------------*/
-let timeLeft = 60;
+let timeLeft = 60
 let timer;
 
 let mistake = true
@@ -39,22 +39,29 @@ const scoreDisplay = document.querySelector('#score')
 const wordDisplay = document.querySelector('#wordDisplay')
 const userInput = document.querySelector('#userInput')
 const letterDisplay = document.querySelector('#correctWords')
+const restButton =document.querySelector('#restButton')
+
 
 /*-------------------------------- Functions --------------------------------*/
 function startTimer() {
   timeLeft = 60
-  document.getElementById("timer").innerText = `Time: ${timeLeft}s`;
+  document.getElementById("timer").innerText = `Time: ${timeLeft}s`
 
   timer = setInterval(() => {
     timeLeft--;
     
-    document.getElementById("timer").innerText = `Time: ${timeLeft}s`;
+    document.getElementById("timer").innerText = `Time: ${timeLeft}s`
 
     if (timeLeft <= 0) {
-      clearInterval(timer);
-      userInput.disabled = true;
+      clearInterval(timer)
+      userInput.disabled = true
+      wordDisplay.innerHTML = `💥 GAME OVER! 💥 The clock hit zero before you could finish. Final score: ${score}.  try again!`
     }
   }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timer)
 }
 
 
@@ -63,6 +70,7 @@ Number = Math.floor(Math.random() * paragraphs.length);
 currentP = paragraphs[Number]
 fullWords = currentP.split(/( )/)
 Paragraphwords = currentP.split("")
+checkScore = currentP.split(' ')
 }
 
 let colorIndex =0
@@ -85,11 +93,13 @@ function renderParagraph() {
 
 function startGame(){
     chooseParagraph()
+    console.log(checkScore)
     startButton.disabled = true
-    userInput.disabled =false
+    userInput.disabled = false
+    userInput.focus()
     startTimer()
-   
-    
+    winCondicion()
+
     console.log(Paragraphwords)
    renderParagraph()
     gamelogic()
@@ -147,10 +157,28 @@ function gamelogic() {
 
 }
 
+function winCondicion () {
+if (score === checkScore.length) {
+  stopTimer()
+  userInput.disabled = true
+  console.log('You Win!')
+wordDisplay.innerHTML = `🔥 YOUR KEYBOARD IS SMOKING! 🔥 You crushed it in ${60 - timeLeft}s with a massive score of ${score}! Absolute typing master!`
+}
+
+else if (timeLeft === 0){
+  wordDisplay.innerHTML = `💥 GAME OVER! 💥 The clock hit zero before you could finish. Final score: ${score}.  try again!`
+}
+}
+
+function restButton(){
+  
+}
+
 
 
 
 /*----------------------------- Event Listeners -----------------------------*/
 startButton.addEventListener('click', startGame)
 userInput.addEventListener('input', gamelogic)
-
+userInput.addEventListener('input' , winCondicion)
+resetButton.addEventListener('click' , restButton)
