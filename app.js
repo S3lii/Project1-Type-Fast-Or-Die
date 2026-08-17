@@ -4,7 +4,7 @@ const paragraphs = [
   "My years have caught up with me. Take this key to the hidden temple, protect your master with your life, and never forget the Shinobi Code.",
   "Hesitation is defeat. Master deflection, read posture meters, and parry decisive strikes to win.",
   "Tarnished, seek the Elden Ring and become Elden Lord by defeating demigods across the Lands Between.",
-  "The Sunken Valley demands swift grappling and focus—dodge lethal hazards and strike only when openings appear.",
+  "The Sunken Valley demands swift grappling and focus dodge lethal hazards and strike only when openings appear.",
   "Let grace guide you through Caelid and Mount Gelmir, whether wielding colossal swords, casting sorceries, or summoning spirits.",
 
   "Social engineering bypasses firewalls by exploiting human error through phishing and pretexting.",
@@ -54,7 +54,7 @@ function startTimer() {
     if (timeLeft <= 0) {
       clearInterval(timer)
       userInput.disabled = true
-      wordDisplay.innerHTML = `💥 GAME OVER! 💥 The clock hit zero before you could finish. Final score: ${score}.  try again!`
+      wordDisplay.innerHTML = `💥 GAME OVER! 💥 The clock hit zero before you could finish. Final score: ${score}.  \n try again!`
     }
   }, 1000);
 }
@@ -72,7 +72,7 @@ Paragraphwords = currentP.split("")
 checkScore = currentP.split(' ')
 }
 
-let colorIndex =0
+let colorIndex = 0
 function changingColor() {
   
   if (userInput.value === Paragraphwords[colorIndex]){
@@ -161,11 +161,7 @@ if (score === checkScore.length) {
   stopTimer()
   userInput.disabled = true
   console.log('You Win!')
-wordDisplay.innerHTML = `🔥 YOUR KEYBOARD IS SMOKING! 🔥 You crushed it in ${60 - timeLeft}s with a massive score of ${score}! Absolute typing master!`
-}
-
-else if (timeLeft === 0){
-  wordDisplay.innerHTML = `💥 GAME OVER! 💥 The clock hit zero before you could finish. Final score: ${score}.  try again!`
+wordDisplay.innerHTML = `🔥 YOUR KEYBOARD IS SMOKING! 🔥 You crushed it in ${60 - timeLeft}s with a massive score of ${score} ! \n Absolute typing master!`
 }
 }
 
@@ -173,6 +169,14 @@ function resetGame(){
   startButton.disabled = false
   stopTimer()
   userInput.disabled = true
+  wordDisplay.innerHTML = 'Press start to begin'
+  score = 0
+  scoreDisplay.innerText = `Score: ${score}`
+  letterDisplay.innerHTML = ''
+  colorIndex = 0
+  currentIndexforLetters = 0
+  currentIndexforWords = 0
+  word = ''
 }
 
 
