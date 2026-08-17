@@ -1,20 +1,20 @@
 /*-------------------------------- Constants --------------------------------*/
 
 const paragraphs = [
-  "Age has finally caught up with me after a grave blunder. Protect your master with your life, take this key to the hidden temple ahead, and never forget the Shinobi Code.",
-  "Hesitation is defeat. Victory demands mastering deflections, reading enemy posture meters, and listening for clashing steel to parry decisive strikes.",
-  "Brave Tarnished, seek the Elden Ring and become Elden Lord. Traverse the Lands Between, confront demigods in shattered realms, and let grace overcome punishing battles.",
-  "The Sunken Valley presents relentless trials where swift grappling and total focus are essential to evade lethal perils and strike when openings appear.",
-  "Rise, Tarnished, and let guidance lead you through Caelid and Mount Gelmir, whether wielding colossal greatswords, casting glintstone sorceries, or summoning spirit ashes.",
+  "My years have caught up with me. Take this key to the hidden temple, protect your master with your life, and never forget the Shinobi Code.",
+  "Hesitation is defeat. Master deflection, read posture meters, and parry decisive strikes to win.",
+  "Tarnished, seek the Elden Ring and become Elden Lord by defeating demigods across the Lands Between.",
+  "The Sunken Valley demands swift grappling and focus dodge lethal hazards and strike only when openings appear.",
+  "Let grace guide you through Caelid and Mount Gelmir, whether wielding colossal swords, casting sorceries, or summoning spirits.",
 
-  "Social engineering easily bypasses technical firewalls by exploiting human trust, using deceptive phishing emails and pretexting to harvest sensitive credentials.",
-  "Penetration testing simulates real-world cyberattacks through reconnaissance, port scanning, and controlled exploits to discover and patch vulnerabilities before hackers do.",
-  "The CIA triad forms the core foundation of cybersecurity: Confidentiality protects private data, Integrity prevents unauthorized tampering, and Availability guarantees reliable system access.",
-  "Network traffic analysis detects threats in real time by inspecting packet headers and anomalous payloads, allowing defenders to stop intrusions before full breaches occur.",
+  "Social engineering bypasses firewalls by exploiting human error through phishing and pretexting.",
+  "Penetration testing simulates cyberattacks via reconnaissance, port scanning, and controlled exploits to patch vulnerabilities first.",
+  "The CIA triad anchors cybersecurity: Confidentiality protects data, Integrity prevents tampering, and Availability ensures access.",
+  "Network traffic analysis intercepts intrusions in real time by inspecting packet headers, anomalous payloads, and firewall logs.",
 
-  "Debugging is like being a detective in a crime film where you are also the culprit, scouring execution logs and tracing variables only to find a single typo crashed the system.",
-  "Any computer can execute code, but great developers write code humans can understand. Clean, modular architecture and clear naming save countless hours of maintenance.",
-  "An algorithm provides a step-by-step procedure to solve complex problems, made significantly more efficient by pairing it with the right data structure, like hash maps or trees."
+  "Debugging is investigating a crime where you are also the culprit, tracing execution logs and breakpoints to find a single typo.",
+  "Write code for humans, not just computers. Clean, modular design and clear naming make maintenance effortless.",
+  "An algorithm is a step by step problem solving procedure optimized by choosing the correct data structure."
 ]
 
 
@@ -24,6 +24,7 @@ let timer;
 
 let mistake = true
 let score = 0
+let mistakes = 0
 
 let Number = Math.floor(Math.random() * paragraphs.length)
 let currentP = paragraphs[Number]
@@ -40,6 +41,7 @@ const wordDisplay = document.querySelector('#wordDisplay')
 const userInput = document.querySelector('#userInput')
 const letterDisplay = document.querySelector('#correctWords')
 const resetButton = document.querySelector('#resetButton')
+const mistakesDisplay = document.querySelector('#mistakescount')
 
 /*-------------------------------- Functions --------------------------------*/
 function startTimer() {
@@ -54,7 +56,7 @@ function startTimer() {
     if (timeLeft <= 0) {
       clearInterval(timer)
       userInput.disabled = true
-      wordDisplay.innerHTML = `💥 GAME OVER! 💥 The clock hit zero before you could finish. Final score: ${score}.  \n try again!`
+      wordDisplay.innerHTML = `💥 GAME OVER! 💥 The clock hit zero before you could finish. Final score: ${score}.  <br> <br> try again!`
     }
   }, 1000);
 }
@@ -135,9 +137,11 @@ function gamelogic() {
   } 
   else if (lastLetter !== currentLetter){
  const span = document.getElementById(`char-${currentIndexforLetters}`)
+
     if (span) span.classList.add("incorrect")
       userInput.value=''
-
+ mistake ++
+ mistakesDisplay.innerText = `Mistakes: ${mistake}`
   }
 
   if (wordNow === word){
@@ -161,7 +165,7 @@ if (score === checkScore.length) {
   stopTimer()
   userInput.disabled = true
   console.log('You Win!')
-wordDisplay.innerHTML = `🔥 YOUR KEYBOARD IS SMOKING! 🔥 You crushed it in ${60 - timeLeft}s with a massive score of ${score} ! \n Absolute typing master!`
+wordDisplay.innerHTML = `🔥 YOUR KEYBOARD IS SMOKING! 🔥 You crushed it in ${60 - timeLeft}s with a massive score of ${score} ! <br> <br> Absolute typing master!`
 }
 }
 
@@ -177,6 +181,9 @@ function resetGame(){
   currentIndexforLetters = 0
   currentIndexforWords = 0
   word = ''
+  mistake = -1
+  mistakesDisplay.innerText = `Mistakes: `
+
 }
 
 

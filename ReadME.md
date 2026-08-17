@@ -31,3 +31,16 @@ it's a Speed Typing game, you should write the paragraph you see in the page bef
 4. As a User, I want to see a lose message if I don't get it
 
 5. As a User I want to see a restart button
+
+
+![Game Screen](image.png)
+
+
+## Future Enhancements
+
+1. Game Mode 
+
+2. Category Selection
+
+3. Mistake Counter
+
