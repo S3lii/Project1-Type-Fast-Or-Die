@@ -42,5 +42,11 @@ it's a Speed Typing game, you should write the paragraph you see in the page bef
 
 2. Category Selection
 
-3. Mistake Counter
+3. Mistake Counter ✅
+
+
+![Game screen after implemnt Mistake Counter](image-2.png)
+
+
+
 

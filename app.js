@@ -14,7 +14,8 @@ const paragraphs = [
 
   "Debugging is investigating a crime where you are also the culprit, tracing execution logs and breakpoints to find a single typo.",
   "Write code for humans, not just computers. Clean, modular design and clear naming make maintenance effortless.",
-  "An algorithm is a step by step problem solving procedure optimized by choosing the correct data structure."
+  "An algorithm is a step by step problem solving procedure optimized by choosing the correct data structure." , 
+  "Look at you. You all want to kill me. What are you waiting for? So who wants to be king? If you want to be king, you must kill me. Come on! Who want to be king?"
 ]
 
 
@@ -49,7 +50,7 @@ function startTimer() {
   document.getElementById("timer").innerText = `Time: ${timeLeft}s`
 
   timer = setInterval(() => {
-    timeLeft--;
+    timeLeft--
     
     document.getElementById("timer").innerText = `Time: ${timeLeft}s`
 

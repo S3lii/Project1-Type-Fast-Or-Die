@@ -164,8 +164,10 @@ button {
 }
 
 #startButton {
+  grid-column: span 2;
   background: var(--accent-red);
   color: #ffffff;
+  box-shadow: 0 8px 24px var(--accent-red-glow);
   box-shadow: 0 8px 24px var(--accent-red-glow);
 }
 
@@ -257,7 +259,6 @@ button {
   transition: all 0.25s ease;
 }
 
-/* Optional shake & flash effect on error */
 .mistakes.shake {
   animation: mistakeFlash 0.3s ease;
 }
