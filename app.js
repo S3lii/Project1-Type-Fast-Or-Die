@@ -30,7 +30,7 @@ let Number = Math.floor(Math.random() * paragraphs.length)
 let currentP = paragraphs[Number]
 let fullWords = currentP.split(/( )/)
 let Paragraphwords = currentP.split("")
-
+let correct = 0
 const punctuation = [' ', ',', '.', '!', '?']
 
 /*------------------------ Cached Element References ------------------------*/
@@ -56,7 +56,9 @@ function startTimer() {
     if (timeLeft <= 0) {
       clearInterval(timer)
       userInput.disabled = true
-      wordDisplay.innerHTML = `💥 GAME OVER! 💥 The clock hit zero before you could finish. Final score: ${score}.  <br> <br> try again!`
+      let accuracy = (correct / (correct + mistake)) * 100
+      let formattedAccuracy = accuracy.toFixed(2)
+      wordDisplay.innerHTML = `💥 GAME OVER! 💥 The clock hit zero before you could finish. Final score: ${score} <br> with ${formattedAccuracy}% Accuracy  <br> <br> try again!`
     }
   }, 1000);
 }
@@ -134,6 +136,7 @@ function gamelogic() {
     scoreDisplay.innerText = `Score: ${score}`
     userInput.value = ''
     word += lastLetter
+    correct++
   } 
   else if (lastLetter !== currentLetter){
  const span = document.getElementById(`char-${currentIndexforLetters}`)
@@ -160,12 +163,17 @@ function gamelogic() {
 
 }
 
+ 
 function winCondicion () {
 if (score === checkScore.length) {
   stopTimer()
   userInput.disabled = true
   console.log('You Win!')
-wordDisplay.innerHTML = `🔥 YOUR KEYBOARD IS SMOKING! 🔥 You crushed it in ${60 - timeLeft}s with a massive score of ${score} ! <br> <br> Absolute typing master!`
+
+  let accuracy = (correct / (correct + mistake)) * 100
+  let formattedAccuracy = accuracy.toFixed(2)
+ 
+  wordDisplay.innerHTML = `🔥 YOUR KEYBOARD IS SMOKING! 🔥 You crushed it in ${60 - timeLeft}s with a massive score of ${score} <br> with ${formattedAccuracy}% Accuracy! <br> <br> Absolute typing master!  `
 }
 }
 
@@ -183,7 +191,7 @@ function resetGame(){
   word = ''
   mistake = -1
   mistakesDisplay.innerText = `Mistakes: `
-
+ correct = 0
 }
 
 
