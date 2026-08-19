@@ -25,7 +25,7 @@ let timer;
 
 let mistake = true
 let score = 0
-let mistakes = 0
+let mistakes = -1
 
 let Number = Math.floor(Math.random() * paragraphs.length)
 let currentP = paragraphs[Number]
@@ -144,8 +144,8 @@ function gamelogic() {
 
     if (span) span.classList.add("incorrect")
       userInput.value=''
- mistake ++
- mistakesDisplay.innerText = `Mistakes: ${mistake}`
+ mistakes ++
+ mistakesDisplay.innerText = `Mistakes: ${mistakes}`
   }
 
   if (wordNow === word){
@@ -190,7 +190,7 @@ function resetGame(){
   currentIndexforLetters = 0
   currentIndexforWords = 0
   word = ''
-  mistake = -1
+  mistakes = -1
   mistakesDisplay.innerText = `Mistakes: `
  correct = 0
 }
