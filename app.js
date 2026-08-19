@@ -6,16 +6,27 @@ const paragraphs = [
   "Tarnished, seek the Elden Ring and become Elden Lord by defeating demigods across the Lands Between.",
   "The Sunken Valley demands swift grappling and focus dodge lethal hazards and strike only when openings appear.",
   "Let grace guide you through Caelid and Mount Gelmir, whether wielding colossal swords, casting sorceries, or summoning spirits.",
+  "Face me Sekiro! The sword must be drawn with absolute conviction when the fate of Ashina hangs upon a single decisive strike.",
+  "Foul Tarnished, in search of the Elden Ring. Emboldened by the flame of ambition! Someone must extinguish thy meager flame. Put these foolish ambitions to rest.",
 
   "Social engineering bypasses firewalls by exploiting human error through phishing and pretexting.",
   "Penetration testing simulates cyberattacks via reconnaissance, port scanning, and controlled exploits to patch vulnerabilities first.",
   "The CIA triad anchors cybersecurity: Confidentiality protects data, Integrity prevents tampering, and Availability ensures access.",
   "Network traffic analysis intercepts intrusions in real time by inspecting packet headers, anomalous payloads, and firewall logs.",
+  "Penetration testing is the deliberate art of ethical exploitation, uncovering insecure configurations and weak cryptography before malicious threat actors weaponize them.",
 
   "Debugging is investigating a crime where you are also the culprit, tracing execution logs and breakpoints to find a single typo.",
   "Write code for humans, not just computers. Clean, modular design and clear naming make maintenance effortless.",
   "An algorithm is a step by step problem solving procedure optimized by choosing the correct data structure." , 
-  "Look at you. You all want to kill me. What are you waiting for? So who wants to be king? If you want to be king, you must kill me. Come on! Who want to be king?"
+
+  "Look at you. You all want to kill me. What are you waiting for? So who wants to be king? If you want to be king, you must kill me. Come on! Who want to be king?" , 
+  "You know nothing Jon Snow. The true enemy won't wait out the storm, he brings the storm with him." , 
+  "I am Daenerys Stormborn of House Targaryen, mother of dragons, Breaker of chains, and I will take what is mine with fire and blood." , 
+  "Say my name. You know exactly who I am. Say it. You're Heisenberg. You're goddamn right." , 
+  "I am not in danger Skyler. I am the danger. A guy opens his door and gets shot, and you think that of me? No. I am the one who knocks!" , 
+  "No matter what you hear scratching at the windows, never open the door after sundown. The talismans are the only things keeping them out." ,
+  "Are you a one or a zero? That's the question you have to ask yourself. Are you a yes or a no? Are you going to act or just react?" , 
+  "Que sera sera. Whatever will be will be. The future's not ours to see, que sera sera. When I was just a little girl, I asked my mother what will I be?"
 ]
 
 
@@ -57,7 +68,7 @@ function startTimer() {
     if (timeLeft <= 0) {
       clearInterval(timer)
       userInput.disabled = true
-      let accuracy = (correct / (correct + mistake)) * 100
+      let accuracy = (correct / (correct + mistakes)) * 100
       let formattedAccuracy = accuracy.toFixed(2)
       wordDisplay.innerHTML = `💥 GAME OVER! 💥 The clock hit zero before you could finish. Final score: ${score} <br> with ${formattedAccuracy}% Accuracy  <br> <br> try again!`
     }
