@@ -171,7 +171,7 @@ if (score === checkScore.length) {
   userInput.disabled = true
   console.log('You Win!')
 
-  let accuracy = (correct / (correct + mistake)) * 100
+  let accuracy = (correct / (correct + mistakes)) * 100
   let formattedAccuracy = accuracy.toFixed(2)
  
   wordDisplay.innerHTML = `🔥 YOUR KEYBOARD IS SMOKING! 🔥 You crushed it in ${60 - timeLeft}s with a massive score of ${score} <br> with ${formattedAccuracy}% Accuracy! <br> <br> Absolute typing master!  `
