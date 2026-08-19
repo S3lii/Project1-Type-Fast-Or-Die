@@ -192,12 +192,10 @@ button {
 }
 
 .correct-display {
-  /* Layout */
   grid-column: span 2;
   min-height: 60px; 
   margin-bottom: 4px;
   
-  /* Typography */
   font-family: var(--font-body);
   font-size: 1.1rem;
   color: var(--accent-green);

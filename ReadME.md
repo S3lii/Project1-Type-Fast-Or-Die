@@ -47,6 +47,8 @@ it's a Speed Typing game, you should write the paragraph you see in the page bef
 
 ![Game screen after implemnt Mistake Counter](image-2.png)
 
+![Final screen](image-3.png)
+
 
 
 
